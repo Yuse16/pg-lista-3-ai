@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sin conexión — PG Lista 3 AI</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; background: #f9fafb; color: #374151;
+    }
+    .container { text-align: center; padding: 2rem; }
+    .icon { width: 80px; height: 80px; margin: 0 auto 1.5rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    p { color: #6b7280; font-size: 0.95rem; line-height: 1.5; max-width: 320px; margin: 0 auto; }
+    .retry { margin-top: 1.5rem; }
+    .retry button {
+      padding: 0.6rem 1.5rem; border-radius: 8px;
+      background: #2563eb; color: #fff; border: none;
+      font-size: 0.9rem; cursor: pointer;
+    }
+    .retry button:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <svg class="icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+      <rect width="512" height="512" rx="64" fill="#2563eb"/>
+      <text x="256" y="310" font-family="system-ui, sans-serif" font-size="200" font-weight="700" fill="#fff" text-anchor="middle" dominant-baseline="middle">L3</text>
+    </svg>
+    <h1>Sin conexión</h1>
+    <p>PG Lista 3 AI necesita conexión a internet para funcionar. Los datos se guardan localmente y estarán disponibles cuando recuperes la conexión.</p>
+    <div class="retry">
+      <button onclick="window.location.reload()">Reintentar</button>
+    </div>
+  </div>
+</body>
+</html>
