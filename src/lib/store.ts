@@ -1,11 +1,11 @@
 import type { Prospect, Client, FollowUp, Quote, Task, QuoteStatus } from './types'
 
 const STORAGE_KEYS = {
-  prospects: 'pglista3_prospects',
-  clients: 'pglista3_clients',
-  followups: 'pglista3_followups',
-  quotes: 'pglista3_quotes',
-  tasks: 'pglista3_tasks',
+  prospects: 'pglista3_v2_prospects',
+  clients: 'pglista3_v2_clients',
+  followups: 'pglista3_v2_followups',
+  quotes: 'pglista3_v2_quotes',
+  tasks: 'pglista3_v2_tasks',
 } as const
 
 function load<T>(key: string, fallback: T[]): T[] {
