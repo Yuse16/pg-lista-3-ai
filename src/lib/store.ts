@@ -1,5 +1,4 @@
 import type { Prospect, Client, FollowUp, Quote, Task, QuoteStatus } from './types'
-import { seedProspects, seedClients, seedFollowUps, seedQuotes, seedTasks } from './seed-data'
 
 const STORAGE_KEYS = {
   prospects: 'pglista3_prospects',
@@ -29,15 +28,6 @@ let initialized = false
 function ensureSeed() {
   if (initialized) return
   initialized = true
-  if (typeof window === 'undefined') return
-  const hasData = localStorage.getItem(STORAGE_KEYS.prospects)
-  if (!hasData || JSON.parse(hasData).length === 0) {
-    save(STORAGE_KEYS.prospects, seedProspects)
-    save(STORAGE_KEYS.clients, seedClients)
-    save(STORAGE_KEYS.followups, seedFollowUps)
-    save(STORAGE_KEYS.quotes, seedQuotes)
-    save(STORAGE_KEYS.tasks, seedTasks)
-  }
 }
 
 export const store = {
