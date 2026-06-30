@@ -1,6 +1,6 @@
 'use client'
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { Suspense, useState, useEffect } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { getRepository } from '@/lib/repositories/repository'
 import { AppLayout } from '@/components/layout/app-layout'
 import { Card, CardHeader, CardContent } from '@/components/ui/card'
@@ -41,8 +41,35 @@ const INITIAL_STATE = {
 }
 
 export default function NewProspectPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center h-64"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600" /></div>}>
+      <NewProspectForm />
+    </Suspense>
+  )
+}
+
+function NewProspectForm() {
   const router = useRouter()
+  const searchParams = useSearchParams()
   const [form, setForm] = useState(INITIAL_STATE)
+
+  useEffect(() => {
+    const name = searchParams.get('name')
+    const phone = searchParams.get('phone')
+    const company = searchParams.get('company')
+    const interest = searchParams.get('interest')
+    const origin = searchParams.get('origin')
+    if (name || phone || company) {
+      setForm(prev => ({
+        ...prev,
+        name: name || prev.name,
+        phone: phone || prev.phone,
+        company: company || prev.company,
+        interest: interest || prev.interest,
+        origin: (origin as any) || prev.origin,
+      }))
+    }
+  }, [searchParams])
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [saving, setSaving] = useState(false)
 

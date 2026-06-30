@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import {
   LayoutDashboard, Users, UserPlus, PhoneCall, FileText, Calendar,
-  Bot, LogOut,
+  Bot, LogOut, Search,
 } from 'lucide-react'
 import { useAuth } from '@/lib/auth/auth-context'
 
@@ -14,6 +14,7 @@ const navItems = [
   { href: '/followups', label: 'Seguimientos', icon: PhoneCall },
   { href: '/quotes', label: 'Cotizaciones', icon: FileText },
   { href: '/agenda', label: 'Agenda', icon: Calendar },
+  { href: '/prospecting', label: 'Prospección', icon: Search },
 ] as const
 
 export function Sidebar() {
